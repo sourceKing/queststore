@@ -1,65 +1,50 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import { Component, useEffect, useState } from 'react';
+import BaseLayout from '../components/LayoutHOC';
+import Row from 'antd/lib/row';
+import Col from 'antd/lib/col';
+import Button from 'antd/lib/button';
+import Card from 'antd/lib/card';
+import { motion, useAnimation, AnimatePresence } from 'framer-motion';
+// import Router from 'next/router';
 
-export default function Home() {
+const heroProds = [
+   {
+      name: "Dragon Fly Deep Black Sweat Pants",
+      price: 2300,
+      url: "/img1.jpg"
+   },
+   {
+      name: "Raw Hem Colorblock Jumpsuit",
+      price: 2200,
+      url: "/img1.jpg"
+   },
+   {
+      name: "Red Rose Jaw Drop Gown",
+      price: 1200,
+      url: "/img2.jpg"
+   }
+];
+
+
+const QuestHome = () => {
+
+   // static getInitialProps(ctx){
+   //    console.log(ctx);
+
+   //    return {};
+   // }
+   
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <Row style={{margin: 0, padding: 0, height: '100%'}}>
+      <Col xs={{span: 24}} sm={{span: 24}} md={{span: 12}} lg={{span: 12}} style={{height: '100%', backgroundColor: "#f2a490"}}>
+        {/* <HeroSlider prods={heroProds} beforeChange={this.onSliderChange} /> */}
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+      </Col>
+      <Col xs={{span: 24}} sm={{span: 24}} md={{span: 12}} lg={{span: 12}} style={{height: '100%', backgroundColor: "#de5b6d"}}>
 
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
+      </Col>
+    </Row>
   )
 }
+
+export default BaseLayout(QuestHome);
