@@ -192,25 +192,6 @@ function QuestStore() {
                   </div>
                </Carousel>
             </Col>
-            {/* <Col span={24} style={{ margin: 0, padding: '24px 0', backgroundColor: '#eee'}}>
-               <Row style={{ margin: 0, padding: 0, height: '100%' }}>
-                  <Col xs={{span: 1}} sm={{span: 2}} lg={{span: 4}} xl={{span: 6}}></Col>
-                  <Col xs={{span: 22}} sm={{span: 20}} lg={{span: 16}} xl={{span: 12}}>
-                     <Row style={{margin: 0, padding: 0}}>
-                        <Col span={12}>
-                           <Card title="Outfit Detail 1"></Card>
-                        </Col>
-                        <Col span={12}>
-                           <Card title="Outfit Detail 2"></Card>
-                        </Col>
-                        <Col span={24}>
-                           <Card title="Outfit Detail 3"></Card>
-                        </Col>
-                     </Row>
-                  </Col>
-                  <Col xs={{span: 1}} sm={{span: 2}} lg={{span: 4}} xl={{span: 6}}></Col>
-               </Row>
-            </Col> */}
          <style jsx>{`
             div.prod-cols {
                // height: calc(100vh - 24px);
