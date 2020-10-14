@@ -138,7 +138,7 @@ function QuestStore() {
          <Row gutter={0} style={{
             margin: 0,
             padding: 0,
-            height: '100%'
+            height: '100%',
          }}>
             <Col span={24} style={{height: '100%', backgroundColor: '#eee'}}>
                <Carousel autoplay={false} draggable accessibility={true} style={{height: '100%'}} afterChange={onChange} slidesToShow={slidesToShow} centerPadding='30px' centerMode={true}>

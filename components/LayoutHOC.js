@@ -16,12 +16,12 @@ import { useRouter } from 'next/router';
 const { Content, Header } = Layout;
 const { Option } = Select;
 
-// funcion Comp for menu navigation
+// function Comp for menu navigation
 function Navigation() {
    // const [menuItem, setMenuItem] = useState('/');
    const router = useRouter();
    const {query, pathname} = router;
-   console.log(pathname, query);
+   // console.log(pathname, query);
 
   const onChange = (value) => {
     router.push(value);
@@ -83,9 +83,6 @@ function UserNavigation() {
 }
 
 function BaseLayout(MyPage) {
-   if (MyPage.getInitialProps) {
-      MyPage.getInitialProps();
-   }
 
    return class extends Component {
 
@@ -97,21 +94,36 @@ function BaseLayout(MyPage) {
                   margin: 0,
                   marginBottom: 4,
                   // borderBottom: '1p solid grey',
-                  position: "fixed",
-                  zIndex: 1,
+                  // position: "fixed",
+                  // zIndex: 1,
                   width: "100%",
+                  height: "auto",
                   backgroundColor: 'transparent',
+                  padding: 10,
                   // borderBottom: '2px solid black'
                }}>
                   <Row gutter={0} style={{
                      margin: 0,
                      padding: 0,
-                     height: '100%'
+                     height: 64,
+                     width: '100%',
+                     backgroundColor: '#6a1d2f',
+                     borderRadius: 10,
                   }}>
-                     <Col xs={{span: 8}} sm={{span: 8}} md={{span: 8}} lg={{span: 8}}>
-                       <Avatar src="/vercel.svg" size="large" style={{marginLeft: 20}} />
+                     <Col xs={{span: 8}} sm={{span: 8}} md={{span: 8}} lg={{span: 8}} style={{
+                        margin: 0,
+                        display: "flex",
+                        flexFlow: "column",
+                        alignItems: "flex-start",
+                        justifyContent: "center",
+                     }}>
+                       <Avatar src="/vercel.svg" size="default" style={{marginLeft: 20}} />
                      </Col>
-                     <Col xs={{span: 8}} sm={{span: 8}} md={{span: 8}} lg={{span: 8}} style={{textAlign: "center"}}>
+                     <Col xs={{span: 8}} sm={{span: 8}} md={{span: 8}} lg={{span: 8}} style={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                     }}>
                         <Navigation />
                      </Col>
                      <Col xs={{span: 8}} sm={{span: 8}} md={{span: 8}} lg={{span: 8}} style={{
