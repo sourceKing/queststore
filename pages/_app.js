@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import '../styles/style.css';
+// import '../styles/style.css';
 import 'antd/dist/antd.min.css';
 
 function MyApp({ Component, pageProps }) {
