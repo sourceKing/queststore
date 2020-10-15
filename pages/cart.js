@@ -10,20 +10,6 @@ import Button from "antd/lib/button";
 import List from "antd/lib/list";
 import Divider from "antd/lib/divider";
 
-// const data = [
-//   {
-//     name: "Air Jordans 1",
-//     desc: "$1200",
-//   },
-//   {
-//     name: "Air Jordans 1",
-//     desc: "$1200",
-//   },
-//   {
-//     name: "Air Jordans 1",
-//     desc: "$1200",
-//   },
-// ];
 
 function Cart({visible, setVisible}) {
 
@@ -35,7 +21,7 @@ function Cart({visible, setVisible}) {
           height: "100%",
           margin: 0,
           padding: "65px 0",
-          backgroundColor: "#f9ad6a",
+          padding: "0 10px 10px 10px",
         }}
       >
         <Col
@@ -43,6 +29,10 @@ function Cart({visible, setVisible}) {
           sm={{ span: 2 }}
           lg={{ span: 4 }}
           xl={{ span: 6 }}
+          style={{
+            backgroundColor: "#f9ad6a",
+            borderRadius: 10,
+          }}
         >
 					
 				</Col>

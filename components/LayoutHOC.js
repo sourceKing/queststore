@@ -10,6 +10,7 @@ import {
   UserOutlined,
   SearchOutlined,
   ShoppingOutlined,
+  ArrowRightOutlined,
 } from "@ant-design/icons";
 import Avatar from "antd/lib/avatar";
 import Badge from "antd/lib/badge";
@@ -31,87 +32,21 @@ function Navigation() {
   const { query, pathname } = router;
   // console.log(pathname, query);
 
-  const onChange = (value) => {
-    router.push(value);
+  const onChange = (e) => {
+    router.push(e.key);
   };
 
-  if (pathname === "/outfits") {
-    return (
-      <>
-        <Select
-          defaultValue={pathname}
-          bordered={false}
-          showArrow={false}
-          style={{ color: "#1890ff", fontWeight: "bolder", width: 100 }}
-          dropdownStyle={{ textAlign: "center" }}
-          onSelect={onChange}
-        >
-          <Option value="/">Home</Option>
-          <Option value="/store">Store</Option>
-          <Option value="/outfits">Outfits</Option>
-        </Select>{" "}
-        <b> - </b>
-        <Select
-          placeholder="Filter"
-          bordered={false}
-          showArrow={false}
-          style={{ color: "#1890ff", fontWeight: "bolder", width: 100 }}
-          dropdownStyle={{ textAlign: "center" }}
-          onSelect={(value) => console.log(value)}
-        >
-          <Option value="women">Women</Option>
-          <Option value="men">Men</Option>
-          <Option value="girls">Girls</Option>
-          <Option value="boys">Boys</Option>
-        </Select>
-      </>
-    );
-  } else if (pathname === "/store") {
-    return (
-      <>
-        <Select
-          defaultValue={pathname}
-          bordered={false}
-          showArrow={false}
-          style={{ color: "#1890ff", fontWeight: "bolder", width: 150 }}
-          dropdownStyle={{ textAlign: "center" }}
-          onSelect={onChange}
-        >
-          <Option value="/">Home</Option>
-          <Option value="/store">Store</Option>
-          <Option value="/outfits">Outfits</Option>
-        </Select>{" "}
-        <b> - </b>
-        <Select
-          placeholder="Filter"
-          bordered={false}
-          showArrow={false}
-          style={{ color: "#1890ff", fontWeight: "bolder", width: 150 }}
-          dropdownStyle={{ textAlign: "center" }}
-          onSelect={(value) => console.log(value)}
-        >
-          <Option value="size">Size</Option>
-          <Option value="color">Color</Option>
-          <Option value="price">Price</Option>
-          <Option value="season">Season</Option>
-        </Select>
-      </>
-    );
+  if (pathname === "/cart") {
+    return null
   }
 
   return (
-    <Select
-      defaultValue={pathname}
-      bordered={false}
-      showArrow={false}
-      style={{ color: "#1890ff", fontWeight: "bolder", width: 150 }}
-      dropdownStyle={{ textAlign: "center" }}
-      onSelect={onChange}
-    >
-      <Option value="/">Home</Option>
-      <Option value="/store">Store</Option>
-      <Option value="/outfits">Outfits</Option>
-    </Select>
+    <Menu mode="horizontal" theme='light' style={{background: 'transparent'}} selectedKeys={[pathname]} onClick={onChange}>
+      <Menu.Item key="/">Home</Menu.Item>
+      <Menu.Item key="/store">Store</Menu.Item>
+      {/* <Menu.Item></Menu.Item> */}
+      <Menu.Item key="/outfits">Outfits</Menu.Item>
+    </Menu>
   );
 }
 
@@ -140,7 +75,7 @@ function BaseLayout(MyPage) {
           style={{
             padding: 0,
             margin: 0,
-            marginBottom: 4,
+            // marginBottom: 4,
             // borderBottom: '1p solid grey',
             // position: "fixed",
             // zIndex: 1,
@@ -158,56 +93,65 @@ function BaseLayout(MyPage) {
               padding: 0,
               height: 64,
               width: "100%",
-              backgroundColor: "#6a1d2f",
+              backgroundColor: "#FFF",
               borderRadius: 10,
+              overflow: "hidden",
             }}
           >
             <Col
-              xs={{ span: 8 }}
-              sm={{ span: 8 }}
-              md={{ span: 8 }}
-              lg={{ span: 8 }}
+              xs={{ span: 4 }}
+              sm={{ span: 3 }}
+              md={{ span: 3 }}
+              lg={{ span: 3 }}
               style={{
-								margin: 0,
-								paddingLeft: "5%",
+                margin: 0,
+                // paddingLeft: "5%",
                 display: "flex",
                 flexFlow: "column",
-                alignItems: "flex-start",
+                alignItems: "center",
                 justifyContent: "center",
+                height: "inherit",
+                background: "#E1E1E1",
               }}
             >
-              <Avatar
-                src="/vercel.svg"
-                size="default"
-                // style={{ marginLeft: 20 }}
-              />
+              <Link passHref href="/">
+                <Avatar
+                  src="/vercel.svg"
+                  size="default"
+                  // style={{ marginLeft: 20 }}
+                />
+              </Link>
             </Col>
             <Col
-              xs={{ span: 8 }}
-              sm={{ span: 8 }}
-              md={{ span: 8 }}
-              lg={{ span: 8 }}
+              xs={{ span: 16 }}
+              sm={{ span: 18 }}
+              md={{ span: 18 }}
+              lg={{ span: 18 }}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "flex-start",
+              }}
+            >
+              <Space align="center" size="middle">
+                <Navigation />
+              </Space>
+            </Col>
+            <Col
+              xs={{ span: 4 }}
+              sm={{ span: 3 }}
+              md={{ span: 3 }}
+              lg={{ span: 3 }}
               style={{
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
+                // paddingRight: "5%",
+                height: "inherit",
+                background: "#000",
               }}
             >
-              <Navigation />
-            </Col>
-            <Col
-              xs={{ span: 8 }}
-              sm={{ span: 8 }}
-              md={{ span: 8 }}
-              lg={{ span: 8 }}
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "flex-end",
-                paddingRight: "5%",
-              }}
-            >
-              {pathname == "/cart" ? (
+              {/* {pathname == "/cart" ? (
                 <Space align="center" size="middle">
                   <Button
                     onClick={() => push("/store")}
@@ -239,25 +183,38 @@ function BaseLayout(MyPage) {
                   <SearchOutlined
                     style={{ color: "white", fontSize: 20, }}
                   />
-                  <Link href="/cart" passHref>
-                    <div style={{ cursor: "pointer" }}>
-                      <Badge dot style={{ right: 5, top: 5 }}>
-                        <ShoppingOutlined
-                          style={{ fontSize: 20, color: "white" }}
-                        />
-                      </Badge>
-                    </div>
-                  </Link>
                 </Space>
+              )} */}
+
+              {pathname !== "/cart" ? (
+                <Link href="/cart" passHref>
+                  <div style={{ cursor: "pointer" }}>
+                    <Badge dot style={{ right: 5, top: 5 }}>
+                      <ShoppingOutlined
+                        style={{ fontSize: 20, color: "white" }}
+                      />
+                    </Badge>
+                  </div>
+                </Link>
+              ) : (
+                <Button
+                  onClick={() => setVisible(true)}
+                  type="link"
+                  size="default"
+                  style={{
+                    borderColor: "transparent",
+                    borderRadius: 20,
+                    color: "white",
+                  }}
+                >
+                  <ArrowRightOutlined style={{ fontSize: 20, color: "#FFF" }} />
+                </Button>
               )}
-              {/* <Popover content={<UserNavigation />} placement="bottomLeft">
-                           <Avatar size="default" shape="circle" icon={<UserOutlined />} style={{margin: '0 20px 0 10px'}}></Avatar>
-                        </Popover> */}
             </Col>
           </Row>
         </Header>
         <Content
-          style={{ padding: 0, margin: 0, height: "calc(100vh - 72px)" }}
+          style={{ padding: 0, margin: 0, height: "calc(100vh - 84px)" }}
         >
           <MyPage setVisible={setVisible} visible={visible} />
         </Content>
