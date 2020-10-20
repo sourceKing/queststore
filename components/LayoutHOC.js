@@ -214,7 +214,7 @@ function BaseLayout(MyPage) {
           </Row>
         </Header>
         <Content
-          style={{ padding: 0, margin: 0, height: "calc(100vh - 84px)" }}
+          style={{ padding: 0, margin: 0, minHeight: "calc(100vh - 84px)" }}
         >
           <MyPage setVisible={setVisible} visible={visible} />
         </Content>
