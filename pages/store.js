@@ -26,10 +26,10 @@ function Store() {
             height: 280,
             background: "#E2BE00",
             display: "inline-block",
-            position: "absolute",
-            top: 0,
-            left: 10,
-            right: 10,
+            position: "fixed",
+            top: 84,
+            left: 20,
+            right: 20,
             margin: "0 auto",
           }}
         ></div>

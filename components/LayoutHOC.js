@@ -73,16 +73,18 @@ function BaseLayout(MyPage) {
       <Layout style={{ minHeight: "100vh" }}>
         <Header
           style={{
-            padding: 0,
             margin: 0,
+            padding: '10px 20px',
             // marginBottom: 4,
             // borderBottom: '1p solid grey',
-            // position: "fixed",
-            // zIndex: 1,
+            position: "fixed",
+            top: 0,
+            left: 0,
+            right: 0,
+            zIndex: 200,
             width: "100%",
             height: "auto",
-            backgroundColor: "transparent",
-            padding: 10,
+            backgroundColor: "inherit",
             // borderBottom: '2px solid black'
           }}
         >
@@ -214,7 +216,7 @@ function BaseLayout(MyPage) {
           </Row>
         </Header>
         <Content
-          style={{ padding: 0, margin: 0, minHeight: "calc(100vh - 84px)" }}
+          style={{ padding: '84px 0 0 0', margin: 0, minHeight: "calc(100vh - 84px)" }}
         >
           <MyPage setVisible={setVisible} visible={visible} />
         </Content>

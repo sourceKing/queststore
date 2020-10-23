@@ -1,5 +1,6 @@
 import { Component, useState, useEffect } from "react";
 import BaseLayout from "components/LayoutHOC";
+import ProdImg from "components/SliderItems";
 import Row from "antd/lib/row";
 import Col from "antd/lib/col";
 import Carousel from "antd/lib/carousel";
@@ -16,39 +17,7 @@ import { useRouter } from "next/router";
 // import { withRouter } from 'next/router';
 // const RadioGroup = Radio.Group;
 
-const ProdImg = (props) => (
-  <div
-    style={{
-      display: "inline-block",
-      //flexFlow: 'column',
-      //alignItems: 'flex-end',
-      //justifyContent: 'flex-end',
-      width: "100%",
-      height: "100%",
-      padding: "0 12px 12px 12px",
-      //backgroundColor: props.color,
-      // backgroundImage: "url('"+props.url+"')",
-      //backgroundSize: 'cover',
-      //backgroundPosition: 'center',
-      //backgroundRepeat: 'no-repeat'
-    }}
-  >
-    <div
-      style={{
-        width: "100%",
-        height: "100%",
-        display: "flex",
-        flexFlow: "column",
-        alignItems: "flex-end",
-        justifyContent: "flex-end",
-        backgroundColor: props.color,
-        borderRadius: 10,
-      }}
-    >
-      {props.children}
-    </div>
-  </div>
-);
+
 
 const HighBtn = (props) => {
   const [visible, setVisibility] = useState(false);
