@@ -15,7 +15,6 @@ import {
 import Avatar from "antd/lib/avatar";
 import Badge from "antd/lib/badge";
 import Popover from "antd/lib/popover";
-import Select from "antd/lib/select";
 import Button from "antd/lib/button";
 import Link from "next/link";
 
@@ -23,7 +22,6 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 
 const { Content, Header } = Layout;
-const { Option } = Select;
 
 // function Comp for menu navigation
 function Navigation() {

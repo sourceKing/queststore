@@ -43,13 +43,13 @@ function Store() {
             position: "relative",
           }}
         >
-          <Col span={2} style={{ margin: 0, padding: 0 }}></Col>
-          <Col span={20} style={{ margin: 0, padding: 0 }}>
+          <Col xs={{span: 1}} sm={{span: 1}} lg={{span: 2}} xl={{span: 2}} style={{ margin: 0, padding: 0 }}></Col>
+          <Col xs={{span: 22}} sm={{span: 22}} lg={{span: 20}} xl={{span: 20}} style={{ margin: 0, padding: 0 }}>
             <Row
               gutter={[8, 8]}
               style={{ margin: 0, padding: 0, paddingTop: 90 }}
             >
-              <Col span={6} style={{ margin: 0 }}>
+              <Col xs={{span: 12}} sm={{span: 12}} lg={{span: 8}} xl={{span: 6}} style={{ margin: 0 }}>
                 <Card
                   title={<Space direction="horizontal" size={82} ><ExpandOutlined /> <HeartOutlined /></Space>}
                   style={{
@@ -73,7 +73,7 @@ function Store() {
                   <Card.Meta title="Popular dress amy" description="$236.00" />
                 </Card>
               </Col>
-              <Col span={6} style={{ margin: 0 }}>
+              <Col xs={{span: 12}} sm={{span: 12}} lg={{span: 8}} xl={{span: 6}} style={{ margin: 0 }}>
                 <Card
                   title={<Space direction="horizontal" size={82} ><ExpandOutlined /> <HeartOutlined /></Space>}
                   style={{
@@ -97,7 +97,7 @@ function Store() {
                   <Card.Meta title="Popular dress amy" description="$236.00" />
                 </Card>
               </Col>
-              <Col span={6} style={{ margin: 0 }}>
+              <Col xs={{span: 12}} sm={{span: 12}} lg={{span: 8}} xl={{span: 6}} style={{ margin: 0 }}>
                 <Card
                   title={<Space direction="horizontal" size={82} ><ExpandOutlined /> <HeartOutlined /></Space>}
                   style={{
@@ -121,7 +121,7 @@ function Store() {
                   <Card.Meta title="Popular dress amy" description="$236.00" />
                 </Card>
               </Col>
-              <Col span={6} style={{ margin: 0 }}>
+              <Col xs={{span: 12}} sm={{span: 12}} lg={{span: 8}} xl={{span: 6}} style={{ margin: 0 }}>
                 <Card
                   title={<Space direction="horizontal" size={82} ><ExpandOutlined /> <HeartOutlined /></Space>}
                   style={{
@@ -145,7 +145,7 @@ function Store() {
                   <Card.Meta title="Popular dress amy" description="$236.00" />
                 </Card>
               </Col>
-              <Col span={6} style={{ margin: 0 }}>
+              <Col xs={{span: 12}} sm={{span: 12}} lg={{span: 8}} xl={{span: 6}} style={{ margin: 0 }}>
                 <Card
                   title={<Space direction="horizontal" size={82} ><ExpandOutlined /> <HeartOutlined /></Space>}
                   style={{
@@ -169,7 +169,7 @@ function Store() {
                   <Card.Meta title="Popular dress amy" description="$236.00" />
                 </Card>
               </Col>
-              <Col span={6} style={{ margin: 0 }}>
+              <Col xs={{span: 12}} sm={{span: 12}} lg={{span: 8}} xl={{span: 6}} style={{ margin: 0 }}>
                 <Card
                   title={<Space direction="horizontal" size={82} ><ExpandOutlined /> <HeartOutlined /></Space>}
                   style={{
@@ -195,7 +195,7 @@ function Store() {
               </Col>
             </Row>
           </Col>
-          <Col span={2} style={{ margin: 0, padding: 0 }}></Col>
+          <Col xs={{span: 1}} sm={{span: 1}} lg={{span: 2}} xl={{span: 2}} style={{ margin: 0, padding: 0 }}></Col>
         </Row>
       </div>
       <style jsx global>{`

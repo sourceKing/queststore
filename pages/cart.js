@@ -51,7 +51,7 @@ function Cart({visible, setVisible}) {
       </Row>
       <Drawer
         title="Create a new account"
-        width='40%'
+        width='70%'
         onClose={() => setVisible(false)}
         visible={visible}
         bodyStyle={{ paddingBottom: 80 }}
