@@ -1,4 +1,4 @@
-import { Component, useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import BaseLayout from "components/LayoutHOC";
 import ProdImg from "components/SliderItems";
 import Row from "antd/lib/row";
@@ -11,13 +11,15 @@ import Radio from "antd/lib/radio";
 import Avatar from "antd/lib/avatar";
 import Divider from "antd/lib/divider";
 import { CloseOutlined, PlusOutlined } from "@ant-design/icons";
-import { watchViewport, unwatchViewport } from "tornis";
 import { useRouter } from "next/router";
+
+import { watchViewport, unwatchViewport } from "tornis";
+
+// import viewport context
+import { ViewportContext } from "lib/VPContext";
 
 // import { withRouter } from 'next/router';
 // const RadioGroup = Radio.Group;
-
-
 
 const HighBtn = (props) => {
   const [visible, setVisibility] = useState(false);
@@ -116,44 +118,30 @@ const HighBtn = (props) => {
 };
 
 function QuestStore() {
-  //state = {
-  // slidesToShow: 1
-  //};
-
   const [slidesToShow, setSlidesToShow] = useState(1);
+  const [vpSize, setVpSize] = useContext(ViewportContext);
 
   // onSlide change function might be useful in the future
   const onChange = (current) => {
     // console.log(current);
   };
 
-  const updateValues = ({ size, scroll, mouse }) => {
-    if (size.changed) {
-      console.log("The size changed ");
-      console.log(size.x, size.y);
-
-      // change the number of slides according to screen size
-      if (size.x <= 780) return setSlidesToShow(1);
-      if (size.x <= 990) return setSlidesToShow(2);
-      if (size.x <= 1720) return setSlidesToShow(3);
-      if (size.x <= 2300) return setSlidesToShow(4);
-    }
-  };
-
-  //componentDidMount() {
-  //watchViewport(this.updateValues);
-  //}
-
   useEffect(() => {
     let isSame = true;
-    if (isSame) watchViewport(updateValues);
+    if (vpSize <= 780) return setSlidesToShow(1);
+    if (vpSize <= 990) return setSlidesToShow(2);
+    if (vpSize <= 1720) return setSlidesToShow(3);
+    if (vpSize <= 2300) return setSlidesToShow(4);
     return () => {
       isSame = false;
+      // unwatchViewport(updateValues);
     };
-  }, [updateValues]);
+  }, [vpSize]);
 
-  //const router = useRouter();
-  //console.log(router);
+  // //const router = useRouter();
+  // console.log(vpSize);
+
+  
 
   return (
     <Row
